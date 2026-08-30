@@ -103,7 +103,6 @@ localparam WRITE_WT_LO2 = 5'b1100;
 localparam WRITE_WT_HI2 = 5'b1101;
 localparam WRITE_CLR_WR = 5'b1110;
 localparam WRITE_CLR_ST_STOP = 5'b1111;
-localparam END = 5'b10000;
 
 
 reg [4:0] CurrState_SISt;
@@ -139,7 +138,7 @@ always @(*) begin
       if (streamSt == `STREAM_READ) begin
         NextState_SISt = READ_RD_LOOP;
         next_txData = dataIn;
-        next_regAddr = regAddr + 1'b1;
+        next_regAddr = regAddr + 8'h01;
         next_bitCnt = 3'b001;
       end else begin
         NextState_SISt = WRITE_WT_HI;
@@ -188,7 +187,7 @@ always @(*) begin
         NextState_SISt = READ_WT_LO;
       end else begin
         NextState_SISt = READ_RD_LOOP;
-        next_bitCnt = bitCnt + 1'b1;
+        next_bitCnt = bitCnt + 3'h1;
       end
       next_streamSt = streamSt;
       next_txData = txData;
@@ -241,7 +240,7 @@ always @(*) begin
           (streamSt == `STREAM_IDLE && startStopDetState == `NULL_DET))) begin
         NextState_SISt = WRITE_CLR_ST_STOP;
         if (startStopDetState == `NULL_DET) begin
-          next_bitCnt = bitCnt + 1'b1;
+          next_bitCnt = bitCnt + 3'h1;
         end else if (startStopDetState == `START_DET) begin
           next_streamSt = `STREAM_IDLE;
           next_rxData = 8'h00;
@@ -255,7 +254,7 @@ always @(*) begin
       end else if (scl == 1'b0) begin
         NextState_SISt = WRITE_ST_LOOP;
         if (startStopDetState == `NULL_DET) begin
-          next_bitCnt = bitCnt + 1'b1;
+          next_bitCnt = bitCnt + 3'h1;
         end else if (startStopDetState == `START_DET) begin
           next_streamSt = `STREAM_IDLE;
           next_rxData = 8'h00;
@@ -327,7 +326,7 @@ always @(*) begin
          end 
          else begin
             NextState_SISt = WRITE_ST_LOOP;
-            next_bitCnt = bitCnt + 1'b1;
+            next_bitCnt = bitCnt + 3'h1;
             next_streamSt = streamSt;
             next_sdaOut = sdaOut;
          end
@@ -402,7 +401,7 @@ always @(*) begin
     end
     WRITE_CLR_WR: begin
       if (writeEn == 1'b1) begin
-         next_regAddr = regAddr + 1'b1;
+         next_regAddr = regAddr + 8'h01;
       end else begin
         next_regAddr = regAddr;
       end
@@ -427,18 +426,6 @@ always @(*) begin
       next_dataOut = dataOut;
       next_bitCnt = bitCnt;
       next_regAddr = regAddr;
-    end
-    END: begin
-      next_streamSt = `STREAM_IDLE;
-      next_txData = 8'h00;
-      next_rxData = 8'h00;
-      next_sdaOut = 1'b1;
-      next_writeEn = 1'b0;
-      next_dataOut = 8'h00;
-      next_bitCnt = 3'b000;
-      next_clearStartStopDet = 1'b0;
-      next_regAddr = regAddr;
-      NextState_SISt = START;
     end
     default: begin
       NextState_SISt = START;

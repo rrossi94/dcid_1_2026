@@ -138,7 +138,7 @@ always @(*) begin
       if (streamSt == `STREAM_READ) begin
         NextState_SISt = READ_RD_LOOP;
         next_txData = dataIn;
-        next_regAddr = regAddr + 8'h01;
+        next_regAddr = (regAddr == 8'hFF) ? 8'h00 : regAddr + 8'h01;
         next_bitCnt = 3'b001;
       end else begin
         NextState_SISt = WRITE_WT_HI;
@@ -187,7 +187,7 @@ always @(*) begin
         NextState_SISt = READ_WT_LO;
       end else begin
         NextState_SISt = READ_RD_LOOP;
-        next_bitCnt = bitCnt + 3'h1;
+        next_bitCnt = (bitCnt == 3'h7) ? 3'h0 : bitCnt + 3'h1;
       end
       next_streamSt = streamSt;
       next_txData = txData;
@@ -240,7 +240,7 @@ always @(*) begin
           (streamSt == `STREAM_IDLE && startStopDetState == `NULL_DET))) begin
         NextState_SISt = WRITE_CLR_ST_STOP;
         if (startStopDetState == `NULL_DET) begin
-          next_bitCnt = bitCnt + 3'h1;
+          next_bitCnt = (bitCnt == 3'h7) ? 3'h0 : bitCnt + 3'h1;
         end else if (startStopDetState == `START_DET) begin
           next_streamSt = `STREAM_IDLE;
           next_rxData = 8'h00;
@@ -254,7 +254,7 @@ always @(*) begin
       end else if (scl == 1'b0) begin
         NextState_SISt = WRITE_ST_LOOP;
         if (startStopDetState == `NULL_DET) begin
-          next_bitCnt = bitCnt + 3'h1;
+          next_bitCnt = (bitCnt == 3'h7) ? 3'h0 : bitCnt + 3'h1;
         end else if (startStopDetState == `START_DET) begin
           next_streamSt = `STREAM_IDLE;
           next_rxData = 8'h00;
@@ -326,7 +326,7 @@ always @(*) begin
          end 
          else begin
             NextState_SISt = WRITE_ST_LOOP;
-            next_bitCnt = bitCnt + 3'h1;
+            next_bitCnt = (bitCnt == 3'h7) ? 3'h0 : bitCnt + 3'h1;
             next_streamSt = streamSt;
             next_sdaOut = sdaOut;
          end
@@ -401,7 +401,7 @@ always @(*) begin
     end
     WRITE_CLR_WR: begin
       if (writeEn == 1'b1) begin
-         next_regAddr = regAddr + 8'h01;
+         next_regAddr = (regAddr == 8'hFF) ? 8'h00 : regAddr + 8'h01;
       end else begin
         next_regAddr = regAddr;
       end

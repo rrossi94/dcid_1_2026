@@ -1,0 +1,2 @@
+\rm -rf *.log INCA_libs work *.log *.key hal.design_facts .nclaunch* .nfs* worklib
+\rm -rf core *.key *.log *.out *.df *.dsn *.trn cov_work hdls_work *.shm *.rpt .cov new_cov_work INCA_libs xcelium.d detail_rep

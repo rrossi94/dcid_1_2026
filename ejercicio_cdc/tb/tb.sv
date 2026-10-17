@@ -24,6 +24,12 @@ module tb;
     .o_coeffs(o_coeffs)
   );
 
+  // Volcado automatico de formas de onda para Cadence SimVision (SHM)
+  initial begin
+    $shm_open("waves.shm");
+    $shm_probe("AS");
+  end
+
   // Clock A (20 ns)
   initial begin
     i_clock_a = 0;

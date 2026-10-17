@@ -1,5 +1,6 @@
+#!/bin/bash
 ./CLEAN
-xrun -access +rwc -timescale 1ns/1ps -sv\
-   -f filelist.f \
-   -gui \
-   
+xrun -access +rwc -timescale 1ns/1ps -sv \
+     -f filelist.f \
+     -gui \
+     "$@"

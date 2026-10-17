@@ -1,7 +1,5 @@
-
-../rtl/sel_coeffs.sv
-../rtl/random_delay_bits.sv
-../tb/tb.sv
+../rtl/multiplicador.v
+../tb.v
 
 -incdir ../rtl/
--incdir ../tb/
+-incdir ../

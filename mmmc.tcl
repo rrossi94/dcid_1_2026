@@ -1,8 +1,22 @@
 #################################################################################
 #
 # Created by Genus(TM) Synthesis Solution 20.10-d885_1 on Wed Jul 08 02:47:05 PDT 2020
+# Modified for DCID1 - Practico 6
 #
 #################################################################################
+
+## Asegurar variable DATA_DIR del entorno
+if {![info exists ::env(DATA_DIR)]} {
+    if {[info exists ::env(RAK_DIR)]} {
+        set ::env(DATA_DIR) "$::env(RAK_DIR)/data"
+    } elseif {[file exists "/home/cds-installs/DDI231/JSTUDIO231/share/studio/RAK/data"]} {
+        set ::env(DATA_DIR) "/home/cds-installs/DDI231/JSTUDIO231/share/studio/RAK/data"
+    } elseif {[file exists "/usr/share/cem-dcid/RAK/data"]} {
+        set ::env(DATA_DIR) "/usr/share/cem-dcid/RAK/data"
+    } else {
+        set ::env(DATA_DIR) "."
+    }
+}
 
 ## library_sets
 create_library_set -name ls_of_ld_PVT_1P08V_125C \
@@ -13,6 +27,7 @@ create_library_set -name ls_of_ld_PVT_1P08V_125C \
               $::env(DATA_DIR)/MACRO_LIBS/CDK_S128x16.lib \
               $::env(DATA_DIR)/MACRO_LIBS/CDK_S256x16.lib \
               $::env(DATA_DIR)/MACRO_LIBS/CDK_R512x16.lib ]
+
 create_library_set -name ls_of_ld_PVT_1P32V_0C \
     -timing [list $::env(DATA_DIR)/LIBRARIES/fast.lib \
               $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v08_extvdd1v32.lib \
@@ -21,6 +36,7 @@ create_library_set -name ls_of_ld_PVT_1P32V_0C \
               $::env(DATA_DIR)/MACRO_LIBS/CDK_S128x16.lib \
               $::env(DATA_DIR)/MACRO_LIBS/CDK_S256x16.lib \
               $::env(DATA_DIR)/MACRO_LIBS/CDK_R512x16.lib ]
+
 create_library_set -name ls_of_ld_power \
     -timing [list $::env(DATA_DIR)/LIBRARIES/typical.lib \
               $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v08_extvdd1v32.lib \
@@ -50,12 +66,10 @@ create_opcond -name typ_120V \
 create_timing_condition -name tc_of_ld_PVT_1P08V_125C \
     -opcond slow_108V \
     -library_sets { ls_of_ld_PVT_1P08V_125C }
+
 create_timing_condition -name tc_of_ld_PVT_1P32V_0C \
     -opcond fast_132V \
     -library_sets { ls_of_ld_PVT_1P32V_0C }
-#create_timing_condition -name tc_of_ld_PVT_1P20V_25C \
-#    -opcond typ_120V \
-#    -library_sets { ls_of_ld_power }
 
 ## rc_corner
 create_rc_corner -name max_rc_corner \
@@ -89,31 +103,38 @@ create_delay_corner -name delay_corner_1 \
     -timing_condition { tc_of_ld_PVT_1P08V_125C AO@tc_of_ld_PVT_1P08V_125C TDSPCore@tc_of_ld_PVT_1P32V_0C PLL_PD@tc_of_ld_PVT_1P08V_125C } \
     -rc_corner max_rc_corner 
 
-#create_delay_corner -name delay_corner_2 \
-#    -timing_condition { tc_of_ld_PVT_1P20V_25C AO@tc_of_ld_PVT_1P20V_25C TDSPCore@tc_of_ld_PVT_1P32V_0C PLL_PD@tc_of_ld_PVT_1P20V_25C } \
-#    -rc_corner min_rc_corner
+## Resolución dinámica del archivo SDC
+set script_dir [file dirname [file normalize [info script]]]
+set sdc_candidates [list \
+    [file join $script_dir "sdc" "multiplicador.sdc"] \
+    [file join $script_dir "multiplicador.sdc"] \
+    [file normalize "sdc/multiplicador.sdc"] \
+    [file normalize "multiplicador.sdc"] \
+    "/usr/share/cem-dcid/practico_power/multiplicador.sdc" \
+]
 
+set sdc_file_to_use ""
+foreach cand $sdc_candidates {
+    if {[file exists $cand]} {
+        set sdc_file_to_use $cand
+        break
+    }
+}
+if {$sdc_file_to_use eq ""} {
+    set sdc_file_to_use [lindex $sdc_candidates 0]
+}
 
 ## constraint_mode
 create_constraint_mode -name constraint_mode_1 \
-    -sdc_files "/usr/share/cem-dcid/practico_power/multiplicador.sdc"
+    -sdc_files [list $sdc_file_to_use]
 
 ## analysis_view
 create_analysis_view -name view1 \
     -constraint_mode constraint_mode_1 \
     -delay_corner delay_corner_1
 
-#create_analysis_view -name view2 \
-#    -constraint_mode constraint_mode_1 \
-#    -delay_corner delay_corner_2
-
 ## set_analysis_view
-#set_analysis_view -setup { view1 view2} \
-#                  -hold { view1 } \
-#		  -leakage {view2} \
-#		  -dynamic {view2}
-
 set_analysis_view -setup { view1 } \
                   -hold { view1 } \
-		  -leakage {view1} \
-		  -dynamic {view1}
+                  -leakage { view1 } \
+                  -dynamic { view1 }

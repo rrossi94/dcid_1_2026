@@ -1,0 +1,965 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Oct 17, 2026 at 00:16:40 -03
+xrun
+	-access +rwc
+	-timescale 1ns/1ps
+	-sv
+	-f filelist.f
+		../rtl/sel_coeffs.sv
+		../rtl/random_delay_bits.sv
+		../tb/tb.sv
+		-incdir ../rtl/
+		-incdir ../tb/
+	-gui
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmvlog: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+file: ../rtl/sel_coeffs.sv
+	module worklib.sel_coeffs:sv
+		errors: 0, warnings: 0
+file: ../rtl/random_delay_bits.sv
+	module worklib.random_delay_bits:sv
+		errors: 0, warnings: 0
+file: ../tb/tb.sv
+	module worklib.tb:sv
+		errors: 0, warnings: 0
+xmvlog: *W,SPDUSD: Include directory ../rtl/ given but not used.
+xmvlog: *W,SPDUSD: Include directory ../tb/ given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 17
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xrun: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+DEFINE std       ./STD
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmelab: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+DEFINE std       ./STD
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmvlog_cg: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+		worklib.tb:sv <0x60fb89cf>
+			streams:  20, words: 18737
+		worklib.sel_coeffs:sv <0x3cb93618>
+			streams:  12, words:  4579
+		worklib.random_delay_bits:sv <0x1b8ce9d8>
+			streams:   1, words:   856
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                11       3
+		Registers:              40      24
+		Scalar wires:           23       -
+		Vectored wires:          4       -
+		Named events:            1       1
+		Always blocks:          16       8
+		Initial blocks:          8       8
+		Cont. assignments:       2       3
+		Pseudo assignments:     15       -
+		Assertions:              1       1
+		Process Clocks:          2       2
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb:sv
+DEFINE std       ./STD
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
+DEFINE synopsys  ./SYNOPSYS
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,2): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/SYNOPSYS' (cds.lib command ignored).
+DEFINE ieee      ./IEEE
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,3): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/IEEE' (cds.lib command ignored).
+DEFINE ambit     ./AMBIT
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,4): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/AMBIT' (cds.lib command ignored).
+DEFINE vital_memory ./VITAL_MEMORY
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,5): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/VITAL_MEMORY' (cds.lib command ignored).
+DEFINE ncutils ./NCUTILS
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,6): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCUTILS' (cds.lib command ignored).
+DEFINE ncinternal ./NCINTERNAL
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,7): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCINTERNAL' (cds.lib command ignored).
+DEFINE ncmodels ./NCMODELS
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,8): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/NCMODELS' (cds.lib command ignored).
+DEFINE xmutils ./XMUTILS
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,9): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMUTILS' (cds.lib command ignored).
+DEFINE xminternal ./XMINTERNAL
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,10): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMINTERNAL' (cds.lib command ignored).
+DEFINE xmmodels ./XMMODELS
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,11): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/XMMODELS' (cds.lib command ignored).
+DEFINE cds_assertions ./CDS_ASSERTIONS
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,12): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_ASSERTIONS' (cds.lib command ignored).
+DEFINE cds_inhconn ./CDS_INHCONN
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,13): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_INHCONN' (cds.lib command ignored).
+DEFINE cds_spicelib ./CDS_SPICELIB
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_SPICELIB' (cds.lib command ignored).
+DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
+|
+xmsim: *W,DLCPTH (/home/cds-installs/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cds-installs/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cds-installs/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> run
+t=0 | sel=0 A=aa B=55 -> out=xx
+t=7000 | sel=0 A=aa B=55 -> out=00
+ERROR @21000: sel=0 -> o_coeffs=00, esperado=aa
+t=91000 | sel=0 A=aa B=55 -> out=aa
+t=161000 | sel=1 A=aa B=ba -> out=aa
+t=231000 | sel=1 A=aa B=ba -> out=ba
+t=315000 | sel=0 A=67 B=ba -> out=ba
+t=385000 | sel=0 A=67 B=ba -> out=67
+t=469000 | sel=1 A=67 B=c7 -> out=67
+t=525000 | sel=1 A=67 B=c7 -> out=c7
+t=623000 | sel=0 A=73 B=c7 -> out=c7
+t=693000 | sel=0 A=73 B=c7 -> out=73
+t=777000 | sel=1 A=73 B=c2 -> out=73
+t=847000 | sel=1 A=73 B=c2 -> out=c2
+t=931000 | sel=0 A=ba B=c2 -> out=c2
+t=1015000 | sel=0 A=ba B=c2 -> out=ba
+t=1085000 | sel=1 A=ba B=27 -> out=ba
+t=1155000 | sel=1 A=ba B=27 -> out=27
+t=1239000 | sel=0 A=40 B=27 -> out=27
+t=1309000 | sel=0 A=40 B=27 -> out=40
+t=1393000 | sel=1 A=40 B=e8 -> out=40
+t=1477000 | sel=1 A=40 B=e8 -> out=e8
+t=1547000 | sel=0 A=64 B=e8 -> out=e8
+t=1617000 | sel=0 A=64 B=e8 -> out=64
+t=1701000 | sel=1 A=64 B=28 -> out=64
+t=1771000 | sel=1 A=64 B=28 -> out=28
+t=1855000 | sel=0 A=fd B=28 -> out=28
+t=1925000 | sel=0 A=fd B=28 -> out=fd
+t=2009000 | sel=1 A=fd B=b8 -> out=fd
+t=2065000 | sel=1 A=fd B=b8 -> out=b8
+t=2163000 | sel=0 A=36 B=b8 -> out=b8
+t=2233000 | sel=0 A=36 B=b8 -> out=36
+t=2317000 | sel=1 A=36 B=53 -> out=36
+t=2387000 | sel=1 A=36 B=53 -> out=53
+t=2471000 | sel=0 A=28 B=53 -> out=53
+t=2555000 | sel=0 A=28 B=53 -> out=28
+t=2625000 | sel=1 A=28 B=9b -> out=28
+t=2681000 | sel=1 A=28 B=9b -> out=9b
+t=2779000 | sel=0 A=3a B=9b -> out=9b
+t=2849000 | sel=0 A=3a B=9b -> out=3a
+t=2933000 | sel=1 A=3a B=d2 -> out=3a
+t=3017000 | sel=1 A=3a B=d2 -> out=d2
+t=3087000 | sel=0 A=3a B=d2 -> out=d2
+t=3157000 | sel=0 A=3a B=d2 -> out=3a
+t=3241000 | sel=1 A=3a B=57 -> out=3a
+t=3311000 | sel=1 A=3a B=57 -> out=57
+t=3395000 | sel=0 A=39 B=57 -> out=57
+t=3465000 | sel=0 A=39 B=57 -> out=39
+t=3549000 | sel=1 A=39 B=e5 -> out=39
+t=3619000 | sel=1 A=39 B=e5 -> out=e5
+t=3703000 | sel=0 A=29 B=e5 -> out=e5
+t=3773000 | sel=0 A=29 B=e5 -> out=29
+t=3857000 | sel=1 A=29 B=8b -> out=29
+t=3927000 | sel=1 A=29 B=8b -> out=8b
+t=4011000 | sel=0 A=36 B=8b -> out=8b
+t=4095000 | sel=0 A=36 B=8b -> out=36
+t=4165000 | sel=1 A=36 B=6c -> out=36
+t=4235000 | sel=1 A=36 B=6c -> out=6c
+t=4319000 | sel=0 A=e7 B=6c -> out=6c
+t=4389000 | sel=0 A=e7 B=6c -> out=e7
+t=4473000 | sel=1 A=e7 B=36 -> out=e7
+t=4543000 | sel=1 A=e7 B=36 -> out=36
+t=4627000 | sel=0 A=f2 B=36 -> out=36
+t=4683000 | sel=0 A=f2 B=36 -> out=f2
+t=4781000 | sel=1 A=f2 B=62 -> out=f2
+t=4851000 | sel=1 A=f2 B=62 -> out=62
+t=4935000 | sel=0 A=e2 B=62 -> out=62
+t=5019000 | sel=0 A=e2 B=62 -> out=e2
+t=5089000 | sel=1 A=e2 B=2f -> out=e2
+t=5159000 | sel=1 A=e2 B=2f -> out=2f
+t=5243000 | sel=0 A=69 B=2f -> out=2f
+t=5313000 | sel=0 A=69 B=2f -> out=69
+t=5397000 | sel=1 A=69 B=5e -> out=69
+t=5467000 | sel=1 A=69 B=5e -> out=5e
+t=5551000 | sel=0 A=84 B=5e -> out=5e
+t=5621000 | sel=0 A=84 B=5e -> out=84
+t=5705000 | sel=1 A=84 B=ad -> out=84
+t=5775000 | sel=1 A=84 B=ad -> out=ad
+t=5859000 | sel=0 A=52 B=ad -> out=ad
+t=5929000 | sel=0 A=52 B=ad -> out=52
+t=6013000 | sel=1 A=52 B=13 -> out=52
+t=6083000 | sel=1 A=52 B=13 -> out=13
+t=6167000 | sel=0 A=b3 B=13 -> out=13
+t=6223000 | sel=0 A=b3 B=13 -> out=b3
+t=6321000 | sel=1 A=b3 B=be -> out=b3
+t=6391000 | sel=1 A=b3 B=be -> out=be
+t=6475000 | sel=0 A=a1 B=be -> out=be
+t=6545000 | sel=0 A=a1 B=be -> out=a1
+t=6629000 | sel=1 A=a1 B=cf -> out=a1
+t=6685000 | sel=1 A=a1 B=cf -> out=cf
+t=6783000 | sel=0 A=50 B=cf -> out=cf
+t=6853000 | sel=0 A=50 B=cf -> out=50
+t=6937000 | sel=1 A=50 B=d1 -> out=50
+t=7007000 | sel=1 A=50 B=d1 -> out=d1
+t=7091000 | sel=0 A=06 B=d1 -> out=d1
+t=7175000 | sel=0 A=06 B=d1 -> out=06
+t=7245000 | sel=1 A=06 B=fd -> out=06
+t=7301000 | sel=1 A=06 B=fd -> out=fd
+t=7399000 | sel=0 A=ba B=fd -> out=fd
+t=7469000 | sel=0 A=ba B=fd -> out=ba
+t=7553000 | sel=1 A=ba B=2f -> out=ba
+t=7623000 | sel=1 A=ba B=2f -> out=2f
+t=7707000 | sel=0 A=6d B=2f -> out=2f
+t=7777000 | sel=0 A=6d B=2f -> out=6d
+t=7861000 | sel=1 A=6d B=a5 -> out=6d
+t=7931000 | sel=1 A=6d B=a5 -> out=a5
+t=8015000 | sel=0 A=4a B=a5 -> out=a5
+t=8085000 | sel=0 A=4a B=a5 -> out=4a
+t=8169000 | sel=1 A=4a B=7c -> out=4a
+t=8225000 | sel=1 A=4a B=7c -> out=7c
+t=8323000 | sel=0 A=7e B=7c -> out=7c
+t=8393000 | sel=0 A=7e B=7c -> out=7e
+t=8477000 | sel=1 A=7e B=e9 -> out=7e
+t=8547000 | sel=1 A=7e B=e9 -> out=e9
+t=8631000 | sel=0 A=d7 B=e9 -> out=e9
+t=8715000 | sel=0 A=d7 B=e9 -> out=d7
+t=8785000 | sel=1 A=d7 B=39 -> out=d7
+t=8855000 | sel=1 A=d7 B=39 -> out=39
+t=8939000 | sel=0 A=1d B=39 -> out=39
+t=9009000 | sel=0 A=1d B=39 -> out=1d
+t=9093000 | sel=1 A=1d B=88 -> out=1d
+t=9163000 | sel=1 A=1d B=88 -> out=88
+t=9247000 | sel=0 A=32 B=88 -> out=88
+t=9303000 | sel=0 A=32 B=88 -> out=32
+t=9401000 | sel=1 A=32 B=42 -> out=32
+t=9471000 | sel=1 A=32 B=42 -> out=42
+t=9555000 | sel=0 A=e9 B=42 -> out=42
+t=9625000 | sel=0 A=e9 B=42 -> out=e9
+t=9709000 | sel=1 A=e9 B=5d -> out=e9
+t=9779000 | sel=1 A=e9 B=5d -> out=5d
+t=9863000 | sel=0 A=a8 B=5d -> out=5d
+t=9933000 | sel=0 A=a8 B=5d -> out=a8
+t=10017000 | sel=1 A=a8 B=52 -> out=a8
+t=10087000 | sel=1 A=a8 B=52 -> out=52
+t=10171000 | sel=0 A=bf B=52 -> out=52
+t=10255000 | sel=0 A=bf B=52 -> out=bf
+t=10325000 | sel=1 A=bf B=df -> out=bf
+t=10395000 | sel=1 A=bf B=df -> out=df
+t=10479000 | sel=0 A=85 B=df -> out=df
+t=10549000 | sel=0 A=85 B=df -> out=85
+t=10633000 | sel=1 A=85 B=7c -> out=85
+t=10703000 | sel=1 A=85 B=7c -> out=7c
+t=10787000 | sel=0 A=36 B=7c -> out=7c
+t=10843000 | sel=0 A=36 B=7c -> out=36
+t=10941000 | sel=1 A=36 B=a0 -> out=36
+t=11011000 | sel=1 A=36 B=a0 -> out=a0
+t=11095000 | sel=0 A=8d B=a0 -> out=a0
+t=11165000 | sel=0 A=8d B=a0 -> out=8d
+t=11249000 | sel=1 A=8d B=b2 -> out=8d
+t=11305000 | sel=1 A=8d B=b2 -> out=b2
+t=11403000 | sel=0 A=22 B=b2 -> out=b2
+t=11473000 | sel=0 A=22 B=b2 -> out=22
+t=11557000 | sel=1 A=22 B=d0 -> out=22
+t=11627000 | sel=1 A=22 B=d0 -> out=d0
+t=11711000 | sel=0 A=83 B=d0 -> out=d0
+t=11795000 | sel=0 A=83 B=d0 -> out=83
+t=11865000 | sel=1 A=83 B=41 -> out=83
+t=11921000 | sel=1 A=83 B=41 -> out=41
+t=12019000 | sel=0 A=13 B=41 -> out=41
+t=12089000 | sel=0 A=13 B=41 -> out=13
+t=12173000 | sel=1 A=13 B=b9 -> out=13
+t=12243000 | sel=1 A=13 B=b9 -> out=b9
+t=12327000 | sel=0 A=a4 B=b9 -> out=b9
+t=12383000 | sel=0 A=a4 B=b9 -> out=a4
+t=12481000 | sel=1 A=a4 B=51 -> out=a4
+t=12551000 | sel=1 A=a4 B=51 -> out=51
+t=12635000 | sel=0 A=d5 B=51 -> out=51
+t=12705000 | sel=0 A=d5 B=51 -> out=d5
+t=12789000 | sel=1 A=d5 B=42 -> out=d5
+t=12845000 | sel=1 A=d5 B=42 -> out=42
+t=12943000 | sel=0 A=2b B=42 -> out=42
+t=13013000 | sel=0 A=2b B=42 -> out=2b
+t=13097000 | sel=1 A=2b B=67 -> out=2b
+t=13167000 | sel=1 A=2b B=67 -> out=67
+t=13251000 | sel=0 A=f0 B=67 -> out=67
+t=13321000 | sel=0 A=f0 B=67 -> out=f0
+t=13405000 | sel=1 A=f0 B=6f -> out=f0
+t=13475000 | sel=1 A=f0 B=6f -> out=6f
+t=13559000 | sel=0 A=cd B=6f -> out=6f
+t=13629000 | sel=0 A=cd B=6f -> out=cd
+t=13713000 | sel=1 A=cd B=e4 -> out=cd
+t=13783000 | sel=1 A=cd B=e4 -> out=e4
+t=13867000 | sel=0 A=27 B=e4 -> out=e4
+t=13937000 | sel=0 A=27 B=e4 -> out=27
+t=14021000 | sel=1 A=27 B=de -> out=27
+t=14091000 | sel=1 A=27 B=de -> out=de
+t=14175000 | sel=0 A=3c B=de -> out=de
+t=14245000 | sel=0 A=3c B=de -> out=3c
+t=14329000 | sel=1 A=3c B=85 -> out=3c
+t=14399000 | sel=1 A=3c B=85 -> out=85
+t=14483000 | sel=0 A=fc B=85 -> out=85
+t=14553000 | sel=0 A=fc B=85 -> out=fc
+t=14637000 | sel=1 A=fc B=49 -> out=fc
+t=14707000 | sel=1 A=fc B=49 -> out=49
+t=14791000 | sel=0 A=a6 B=49 -> out=49
+t=14875000 | sel=0 A=a6 B=49 -> out=a6
+t=14945000 | sel=1 A=a6 B=e3 -> out=a6
+t=15015000 | sel=1 A=a6 B=e3 -> out=e3
+t=15099000 | sel=0 A=28 B=e3 -> out=e3
+t=15169000 | sel=0 A=28 B=e3 -> out=28
+t=15253000 | sel=1 A=28 B=09 -> out=28
+t=15337000 | sel=1 A=28 B=09 -> out=09
+t=15407000 | sel=0 A=35 B=09 -> out=09
+t=15477000 | sel=0 A=35 B=09 -> out=35
+t=15561000 | sel=1 A=35 B=f2 -> out=35
+t=15631000 | sel=1 A=35 B=f2 -> out=f2
+t=15715000 | sel=0 A=25 B=f2 -> out=f2
+t=15785000 | sel=0 A=25 B=f2 -> out=25
+t=15869000 | sel=1 A=25 B=8f -> out=25
+t=15925000 | sel=1 A=25 B=8f -> out=8f
+t=16023000 | sel=0 A=8f B=8f -> out=8f
+t=16177000 | sel=1 A=8f B=84 -> out=8f
+t=16247000 | sel=1 A=8f B=84 -> out=84
+t=16331000 | sel=0 A=a6 B=84 -> out=84
+t=16401000 | sel=0 A=a6 B=84 -> out=a6
+t=16485000 | sel=1 A=a6 B=ea -> out=a6
+t=16555000 | sel=1 A=a6 B=ea -> out=ea
+t=16639000 | sel=0 A=55 B=ea -> out=ea
+t=16709000 | sel=0 A=55 B=ea -> out=55
+t=16793000 | sel=1 A=55 B=c6 -> out=55
+t=16863000 | sel=1 A=55 B=c6 -> out=c6
+t=16947000 | sel=0 A=1b B=c6 -> out=c6
+t=17003000 | sel=0 A=1b B=c6 -> out=1b
+t=17101000 | sel=1 A=1b B=46 -> out=1b
+t=17171000 | sel=1 A=1b B=46 -> out=46
+t=17255000 | sel=0 A=a6 B=46 -> out=46
+t=17339000 | sel=0 A=a6 B=46 -> out=a6
+t=17409000 | sel=1 A=a6 B=c0 -> out=a6
+t=17465000 | sel=1 A=a6 B=c0 -> out=c0
+t=17563000 | sel=0 A=30 B=c0 -> out=c0
+t=17633000 | sel=0 A=30 B=c0 -> out=30
+t=17717000 | sel=1 A=30 B=69 -> out=30
+t=17787000 | sel=1 A=30 B=69 -> out=69
+t=17871000 | sel=0 A=9b B=69 -> out=69
+t=17941000 | sel=0 A=9b B=69 -> out=9b
+t=18025000 | sel=1 A=9b B=d7 -> out=9b
+t=18081000 | sel=1 A=9b B=d7 -> out=d7
+t=18179000 | sel=0 A=4d B=d7 -> out=d7
+t=18249000 | sel=0 A=4d B=d7 -> out=4d
+t=18333000 | sel=1 A=4d B=37 -> out=4d
+t=18403000 | sel=1 A=4d B=37 -> out=37
+t=18487000 | sel=0 A=cb B=37 -> out=37
+t=18557000 | sel=0 A=cb B=37 -> out=cb
+t=18641000 | sel=1 A=cb B=4c -> out=cb
+t=18711000 | sel=1 A=cb B=4c -> out=4c
+t=18795000 | sel=0 A=16 B=4c -> out=4c
+t=18865000 | sel=0 A=16 B=4c -> out=16
+t=18949000 | sel=1 A=16 B=2d -> out=16
+t=19019000 | sel=1 A=16 B=2d -> out=2d
+t=19103000 | sel=0 A=c6 B=2d -> out=2d
+t=19159000 | sel=0 A=c6 B=2d -> out=c6
+t=19257000 | sel=1 A=c6 B=bd -> out=c6
+t=19327000 | sel=1 A=c6 B=bd -> out=bd
+t=19411000 | sel=0 A=ea B=bd -> out=bd
+t=19495000 | sel=0 A=ea B=bd -> out=ea
+t=19565000 | sel=1 A=ea B=e8 -> out=ea
+t=19635000 | sel=1 A=ea B=e8 -> out=e8
+t=19719000 | sel=0 A=9c B=e8 -> out=e8
+t=19789000 | sel=0 A=9c B=e8 -> out=9c
+t=19873000 | sel=1 A=9c B=a1 -> out=9c
+t=19943000 | sel=1 A=9c B=a1 -> out=a1
+t=20027000 | sel=0 A=65 B=a1 -> out=a1
+t=20083000 | sel=0 A=65 B=a1 -> out=65
+t=20181000 | sel=1 A=65 B=9d -> out=65
+t=20251000 | sel=1 A=65 B=9d -> out=9d
+t=20335000 | sel=0 A=55 B=9d -> out=9d
+t=20405000 | sel=0 A=55 B=9d -> out=55
+t=20489000 | sel=1 A=55 B=ce -> out=55
+t=20545000 | sel=1 A=55 B=ce -> out=ce
+t=20643000 | sel=0 A=e0 B=ce -> out=ce
+t=20713000 | sel=0 A=e0 B=ce -> out=e0
+t=20797000 | sel=1 A=e0 B=9f -> out=e0
+t=20867000 | sel=1 A=e0 B=9f -> out=9f
+t=20951000 | sel=0 A=79 B=9f -> out=9f
+t=21021000 | sel=0 A=79 B=9f -> out=79
+t=21105000 | sel=1 A=79 B=f4 -> out=79
+t=21175000 | sel=1 A=79 B=f4 -> out=f4
+t=21259000 | sel=0 A=ee B=f4 -> out=f4
+t=21329000 | sel=0 A=ee B=f4 -> out=ee
+t=21413000 | sel=1 A=ee B=df -> out=ee
+t=21497000 | sel=1 A=ee B=df -> out=df
+t=21567000 | sel=0 A=87 B=df -> out=df
+t=21623000 | sel=0 A=87 B=df -> out=87
+t=21721000 | sel=1 A=87 B=21 -> out=87
+t=21791000 | sel=1 A=87 B=21 -> out=21
+t=21875000 | sel=0 A=df B=21 -> out=21
+t=21945000 | sel=0 A=df B=21 -> out=df
+t=22029000 | sel=1 A=df B=65 -> out=df
+t=22085000 | sel=1 A=df B=65 -> out=65
+t=22183000 | sel=0 A=80 B=65 -> out=65
+t=22253000 | sel=0 A=80 B=65 -> out=80
+t=22337000 | sel=1 A=80 B=3d -> out=80
+t=22407000 | sel=1 A=80 B=3d -> out=3d
+t=22491000 | sel=0 A=3f B=3d -> out=3d
+t=22575000 | sel=0 A=3f B=3d -> out=3f
+t=22645000 | sel=1 A=3f B=da -> out=3f
+t=22701000 | sel=1 A=3f B=da -> out=da
+t=22799000 | sel=0 A=5b B=da -> out=da
+t=22869000 | sel=0 A=5b B=da -> out=5b
+t=22953000 | sel=1 A=5b B=8d -> out=5b
+t=23023000 | sel=1 A=5b B=8d -> out=8d
+t=23107000 | sel=0 A=56 B=8d -> out=8d
+t=23177000 | sel=0 A=56 B=8d -> out=56
+t=23261000 | sel=1 A=56 B=00 -> out=56
+t=23331000 | sel=1 A=56 B=00 -> out=00
+t=23415000 | sel=0 A=90 B=00 -> out=00
+t=23485000 | sel=0 A=90 B=00 -> out=90
+t=23569000 | sel=1 A=90 B=33 -> out=90
+t=23625000 | sel=1 A=90 B=33 -> out=33
+t=23723000 | sel=0 A=a7 B=33 -> out=33
+t=23793000 | sel=0 A=a7 B=33 -> out=a7
+t=23877000 | sel=1 A=a7 B=37 -> out=a7
+t=23947000 | sel=1 A=a7 B=37 -> out=37
+t=24031000 | sel=0 A=90 B=37 -> out=37
+t=24101000 | sel=0 A=90 B=37 -> out=90
+t=24185000 | sel=1 A=90 B=aa -> out=90
+t=24241000 | sel=1 A=90 B=aa -> out=aa
+t=24339000 | sel=0 A=74 B=aa -> out=aa
+t=24409000 | sel=0 A=74 B=aa -> out=74
+t=24493000 | sel=1 A=74 B=f8 -> out=74
+t=24563000 | sel=1 A=74 B=f8 -> out=f8
+t=24647000 | sel=0 A=49 B=f8 -> out=f8
+t=24703000 | sel=0 A=49 B=f8 -> out=49
+t=24801000 | sel=1 A=49 B=4d -> out=49
+t=24871000 | sel=1 A=49 B=4d -> out=4d
+t=24955000 | sel=0 A=36 B=4d -> out=4d
+t=25025000 | sel=0 A=36 B=4d -> out=36
+t=25109000 | sel=1 A=36 B=5a -> out=36
+t=25165000 | sel=1 A=36 B=5a -> out=5a
+t=25263000 | sel=0 A=a5 B=5a -> out=5a
+t=25333000 | sel=0 A=a5 B=5a -> out=a5
+t=25417000 | sel=1 A=a5 B=cf -> out=a5
+t=25487000 | sel=1 A=a5 B=cf -> out=cf
+t=25571000 | sel=0 A=27 B=cf -> out=cf
+t=25641000 | sel=0 A=27 B=cf -> out=27
+t=25725000 | sel=1 A=27 B=92 -> out=27
+t=25795000 | sel=1 A=27 B=92 -> out=92
+t=25879000 | sel=0 A=0a B=92 -> out=92
+t=25949000 | sel=0 A=0a B=92 -> out=0a
+t=26033000 | sel=1 A=0a B=c1 -> out=0a
+t=26117000 | sel=1 A=0a B=c1 -> out=c1
+t=26187000 | sel=0 A=ba B=c1 -> out=c1
+t=26257000 | sel=0 A=ba B=c1 -> out=ba
+t=26341000 | sel=1 A=ba B=6d -> out=ba
+t=26411000 | sel=1 A=ba B=6d -> out=6d
+t=26495000 | sel=0 A=d9 B=6d -> out=6d
+t=26565000 | sel=0 A=d9 B=6d -> out=d9
+t=26649000 | sel=1 A=d9 B=11 -> out=d9
+t=26705000 | sel=1 A=d9 B=11 -> out=11
+t=26803000 | sel=0 A=1f B=11 -> out=11
+t=26873000 | sel=0 A=1f B=11 -> out=1f
+t=26957000 | sel=1 A=1f B=d6 -> out=1f
+t=27027000 | sel=1 A=1f B=d6 -> out=d6
+t=27111000 | sel=0 A=f1 B=d6 -> out=d6
+t=27181000 | sel=0 A=f1 B=d6 -> out=f1
+t=27265000 | sel=1 A=f1 B=88 -> out=f1
+t=27321000 | sel=1 A=f1 B=88 -> out=88
+t=27419000 | sel=0 A=c2 B=88 -> out=88
+t=27489000 | sel=0 A=c2 B=88 -> out=c2
+t=27573000 | sel=1 A=c2 B=55 -> out=c2
+t=27643000 | sel=1 A=c2 B=55 -> out=55
+t=27727000 | sel=0 A=2b B=55 -> out=55
+t=27783000 | sel=0 A=2b B=55 -> out=2b
+t=27881000 | sel=1 A=2b B=49 -> out=2b
+t=27951000 | sel=1 A=2b B=49 -> out=49
+t=28035000 | sel=0 A=cb B=49 -> out=49
+t=28105000 | sel=0 A=cb B=49 -> out=cb
+t=28189000 | sel=1 A=cb B=8c -> out=cb
+t=28245000 | sel=1 A=cb B=8c -> out=8c
+t=28343000 | sel=0 A=de B=8c -> out=8c
+t=28413000 | sel=0 A=de B=8c -> out=de
+t=28497000 | sel=1 A=de B=57 -> out=de
+t=28567000 | sel=1 A=de B=57 -> out=57
+t=28651000 | sel=0 A=9d B=57 -> out=57
+t=28735000 | sel=0 A=9d B=57 -> out=9d
+t=28805000 | sel=1 A=9d B=ba -> out=9d
+t=28861000 | sel=1 A=9d B=ba -> out=ba
+t=28959000 | sel=0 A=5a B=ba -> out=ba
+t=29029000 | sel=0 A=5a B=ba -> out=5a
+t=29113000 | sel=1 A=5a B=0e -> out=5a
+t=29183000 | sel=1 A=5a B=0e -> out=0e
+t=29267000 | sel=0 A=59 B=0e -> out=0e
+t=29323000 | sel=0 A=59 B=0e -> out=59
+t=29421000 | sel=1 A=59 B=39 -> out=59
+t=29491000 | sel=1 A=59 B=39 -> out=39
+t=29575000 | sel=0 A=6f B=39 -> out=39
+t=29645000 | sel=0 A=6f B=39 -> out=6f
+t=29729000 | sel=1 A=6f B=a6 -> out=6f
+t=29785000 | sel=1 A=6f B=a6 -> out=a6
+t=29883000 | sel=0 A=5b B=a6 -> out=a6
+t=29953000 | sel=0 A=5b B=a6 -> out=5b
+t=30037000 | sel=1 A=5b B=02 -> out=5b
+t=30107000 | sel=1 A=5b B=02 -> out=02
+t=30191000 | sel=0 A=e5 B=02 -> out=02
+t=30275000 | sel=0 A=e5 B=02 -> out=e5
+t=30345000 | sel=1 A=e5 B=b6 -> out=e5
+t=30415000 | sel=1 A=e5 B=b6 -> out=b6
+t=30499000 | sel=0 A=b9 B=b6 -> out=b6
+t=30569000 | sel=0 A=b9 B=b6 -> out=b9
+t=30653000 | sel=1 A=b9 B=26 -> out=b9
+t=30723000 | sel=1 A=b9 B=26 -> out=26
+t=30807000 | sel=0 A=03 B=26 -> out=26
+Simulation complete via $finish(1) at time 30857 NS + 0
+../tb/tb.sv:70     $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	23.09-s006: Exiting on Oct 17, 2026 at 00:34:42 -03  (total: 00:18:02)

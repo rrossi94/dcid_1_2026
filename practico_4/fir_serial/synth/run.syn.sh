@@ -1,2 +1,2 @@
 #!/bin/bash
-genus -f ./scripts/genus.syn.tcl
+genus -overwrite -batch -f ./scripts/genus.syn.tcl

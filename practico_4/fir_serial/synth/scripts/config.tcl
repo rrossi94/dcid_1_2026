@@ -3,9 +3,8 @@
 set design "fir_serial"
 
 # path to rtl and sdc containers, where the rtl code and sdc will be placed
-set rtlpath "/home/finsaurralde/Escritorio/vlsi_course/modulo3"
-set codepath "${rtlpath}/${design}/rtl"
-set sdcpath  "${rtlpath}/${design}/sdc"
+set codepath "../rtl"
+set sdcpath  "../sdc"
 
 # create verilog file list and sdc lists
 set vlist "fir_serial.sv"

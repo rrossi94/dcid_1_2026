@@ -189,4 +189,4 @@ puts "============================"
 
 file copy [get_db / .stdout_log] ${_LOG_PATH}/
 
-##quit
+exit

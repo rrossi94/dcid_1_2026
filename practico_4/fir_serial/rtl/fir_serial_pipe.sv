@@ -59,12 +59,10 @@ module fir_serial #(
   
   always@(*)
   begin
-    prod[0] = data_in_reg*coeffs[0];
     data_sum = prod[0];
 
     for(j=1; j<N_COEFFS; j=j+1)
     begin: data_accum
-      prod[j] = shift_reg[j-1]*coeffs[j];
       data_sum = data_sum + prod[j];
     end
   end

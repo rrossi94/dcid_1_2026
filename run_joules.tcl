@@ -114,7 +114,8 @@ foreach cfg $design_configs {
     # Carga de restricciones SDC
     puts "INFO: Aplicando restricciones SDC desde $sdc_file..."
     if {[file exists $sdc_file]} {
-        read_sdc $sdc_file
+        catch {update_constraint_mode -name constraint_mode_1 -sdc_files [list $sdc_file]}
+        catch {read_sdc $sdc_file}
     } else {
         puts "ADVERTENCIA: No se encontro $sdc_file. Ejecutando init_design generico..."
     }

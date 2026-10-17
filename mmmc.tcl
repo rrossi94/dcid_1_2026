@@ -7,16 +7,13 @@
 
 set libpath "/home/amslib/PDKs/gpdk045v6"
 
-## Seleccion de librerias logicas y QRC
+## Seleccion de libreria logica slow GPDK045
 if {[file exists "${libpath}/gsclib045/timing/slow_vdd1v0_basicCells.lib"]} {
     set slow_lib "${libpath}/gsclib045/timing/slow_vdd1v0_basicCells.lib"
-    set qrc_file "${libpath}/qrc/rcworst/qrcTechFile"
 } elseif {[info exists ::env(DATA_DIR)] && [file exists "$::env(DATA_DIR)/LIBRARIES/slow.lib"]} {
     set slow_lib "$::env(DATA_DIR)/LIBRARIES/slow.lib"
-    set qrc_file "$::env(DATA_DIR)/CONSTRAINTS/gpdk045.tch"
 } else {
     set slow_lib "${libpath}/gsclib045/timing/slow_vdd1v0_basicCells.lib"
-    set qrc_file "${libpath}/qrc/rcworst/qrcTechFile"
 }
 
 ## library_sets
@@ -35,9 +32,10 @@ create_timing_condition -name tc_of_ld_PVT_1P08V_125C \
     -library_sets { ls_of_ld_PVT_1P08V_125C }
 
 ## rc_corner
+# NOTA: Se omite -qrc_tech para evitar que Joules 23.10 intente extraer PLE termico
+# sin una tabla de capacidades (.cap_table), lo cual genera violacion de segmento (SIGSEGV).
 create_rc_corner -name max_rc_corner \
     -temperature 125.0 \
-    -qrc_tech $qrc_file \
     -pre_route_res 1.0 \
     -pre_route_cap 1.0 \
     -pre_route_clock_res 0.0 \
@@ -56,6 +54,27 @@ create_delay_corner -name delay_corner_1 \
 ## Resolucion dinamica del archivo SDC
 if {[info exists CURRENT_SDC] && [file exists $CURRENT_SDC]} {
     set sdc_file_to_use $CURRENT_SDC
+} elseif {[info exists TARGET_DESIGN] || [info exists ::env(TARGET_DESIGN)]} {
+    if {[info exists TARGET_DESIGN]} {
+        set tdes $TARGET_DESIGN
+    } else {
+        set tdes $::env(TARGET_DESIGN)
+    }
+    switch -exact -- $tdes {
+        "fir_serial"        { set sdc_file_to_use "fir_serial_mod/sdc/fir_serial.sdc" }
+        "fir_pipe_reg"      { set sdc_file_to_use "fir_pipe_reg_mod/sdc/fir_pipe_reg.sdc" }
+        "fir_parallel_orig" { set sdc_file_to_use "fir_parallel_orig/sdc/fir_parallel.sdc" }
+        "fir_parallel_mod"  { set sdc_file_to_use "fir_parallel_mod/sdc/fir_parallel.sdc" }
+        default             { set sdc_file_to_use "fir_serial_mod/sdc/fir_serial.sdc" }
+    }
+    if {![file exists $sdc_file_to_use]} {
+        switch -exact -- $tdes {
+            "fir_serial"        { set sdc_file_to_use "sdc/fir_serial.sdc" }
+            "fir_pipe_reg"      { set sdc_file_to_use "sdc/fir_pipe_reg.sdc" }
+            "fir_parallel_orig" { set sdc_file_to_use "sdc/fir_parallel.sdc" }
+            "fir_parallel_mod"  { set sdc_file_to_use "sdc/fir_parallel.sdc" }
+        }
+    }
 } else {
     set sdc_candidates [list \
         "fir_serial_mod/sdc/fir_serial.sdc" \
@@ -73,8 +92,12 @@ if {[info exists CURRENT_SDC] && [file exists $CURRENT_SDC]} {
     }
 }
 
-if {$sdc_file_to_use eq ""} {
-    set sdc_file_to_use "fir_serial_mod/sdc/fir_serial.sdc"
+if {$sdc_file_to_use eq "" || ![file exists $sdc_file_to_use]} {
+    if {[file exists "fir_serial_mod/sdc/fir_serial.sdc"]} {
+        set sdc_file_to_use "fir_serial_mod/sdc/fir_serial.sdc"
+    } elseif {[file exists "sdc/fir_serial.sdc"]} {
+        set sdc_file_to_use "sdc/fir_serial.sdc"
+    }
 }
 
 ## constraint_mode

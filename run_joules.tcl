@@ -65,6 +65,7 @@ proc parse_joules_report {rpt_file} {
     set p_sw   "N/A"
     set p_leak "N/A"
     set p_tot  "N/A"
+    set power_unit "W"
 
     if {![file exists $rpt_file]} {
         return [list $p_int $p_sw $p_leak $p_tot]
@@ -72,7 +73,35 @@ proc parse_joules_report {rpt_file} {
 
     set fp [open $rpt_file r]
     while {[gets $fp line] >= 0} {
-        # Formato de lineas individuales: Internal Power: <val>
+        # Detectar unidad de potencia si viene declarada en el reporte
+        if {[regexp -nocase {Power\s+Unit:\s*([a-zA-Z]+)} $line -> pu]} {
+            set power_unit [string trim $pu]
+        }
+
+        # Formato nativo Cadence Joules:
+        # Category         Leakage     Internal    Switching        Total    Row%
+        # Subtotal     3.48066e-07  6.82367e-04  1.06458e-03  1.74729e-03 100.00%
+        if {[regexp -nocase {^\s*(?:Subtotal|Total)\s+([0-9.eE+-]+)\s+([0-9.eE+-]+)\s+([0-9.eE+-]+)\s+([0-9.eE+-]+)} $line -> val_leak val_int val_sw val_tot]} {
+            if {[string toupper $power_unit] eq "W"} {
+                set p_leak [format "%.4f uW" [expr {$val_leak * 1.0e6}]]
+                set p_int  [format "%.4f mW" [expr {$val_int * 1000.0}]]
+                set p_sw   [format "%.4f mW" [expr {$val_sw * 1000.0}]]
+                set p_tot  [format "%.4f mW" [expr {$val_tot * 1000.0}]]
+            } elseif {[string toupper $power_unit] eq "MW"} {
+                set p_leak [format "%.4f uW" [expr {$val_leak * 1000.0}]]
+                set p_int  [format "%.4f mW" $val_int]
+                set p_sw   [format "%.4f mW" $val_sw]
+                set p_tot  [format "%.4f mW" $val_tot]
+            } else {
+                set p_leak "$val_leak $power_unit"
+                set p_int  "$val_int $power_unit"
+                set p_sw   "$val_sw $power_unit"
+                set p_tot  "$val_tot $power_unit"
+            }
+            break
+        }
+
+        # Formatos alternativos campo: valor
         if {[regexp -nocase {(?:Total\s+)?Internal\s+Power\s*:\s*([0-9.eE+-]+(?:\s*[a-zA-Z]+)?)} $line -> val]} {
             set p_int [string trim $val]
         } elseif {[regexp -nocase {(?:Total\s+)?Switching\s+Power\s*:\s*([0-9.eE+-]+(?:\s*[a-zA-Z]+)?)} $line -> val]} {
@@ -81,12 +110,6 @@ proc parse_joules_report {rpt_file} {
             set p_leak [string trim $val]
         } elseif {[regexp -nocase {^Total\s+Power\s*:\s*([0-9.eE+-]+(?:\s*[a-zA-Z]+)?)} $line -> val]} {
             set p_tot [string trim $val]
-        # Formato tabular Joules / Genus: Total  <int>  <sw>  <leak>  <tot>
-        } elseif {[regexp -nocase {^\s*Total\s+([0-9.eE+-]+(?:\s*[a-zA-Z]+)?)\s+([0-9.eE+-]+(?:\s*[a-zA-Z]+)?)\s+([0-9.eE+-]+(?:\s*[a-zA-Z]+)?)\s+([0-9.eE+-]+(?:\s*[a-zA-Z]+)?)} $line -> pi ps pl pt]} {
-            if {$p_int eq "N/A"}  { set p_int  [string trim $pi] }
-            if {$p_sw eq "N/A"}   { set p_sw   [string trim $ps] }
-            if {$p_leak eq "N/A"} { set p_leak [string trim $pl] }
-            if {$p_tot eq "N/A"}  { set p_tot  [string trim $pt] }
         }
     }
     close $fp

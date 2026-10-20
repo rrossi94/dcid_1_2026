@@ -4,7 +4,8 @@ module multiplicador #(
   parameter NB_INPUT    = 9,
   parameter NBF_INPUT   = 7,
   parameter NB_OUTPUT   = 19,
-  parameter NBF_OUTPUT  = 14
+  parameter NBF_OUTPUT  = 14,
+  parameter ARCH        = 0 // 0: SCM (Karatsuba/Gauss), 1: MCM (Canónico 4 multiplicadores)
 )
 (
   input  signed [NB_INPUT  -1 : 0] i_real,
@@ -13,54 +14,124 @@ module multiplicador #(
   output signed [NB_OUTPUT -1 : 0] o_imag
 );
   
+  generate
+    if (ARCH == 0) begin : gen_scm
+      scm_mult #(
+        .NB_INPUT   (NB_INPUT   ),
+        .NBF_INPUT  (NBF_INPUT  ),
+        .NB_OUTPUT  (NB_OUTPUT  ),
+        .NBF_OUTPUT (NBF_OUTPUT ),
+        .NB_TWIDDLE (9          ),
+        .NBF_TWIDDLE(7          )
+      )
+      u_mult(
+        .i_real(i_real),
+        .i_imag(i_imag),
+        .o_real(o_real),
+        .o_imag(o_imag)
+      );
+    end else begin : gen_mcm
+      mcm_mult #(
+        .NB_INPUT   (NB_INPUT   ),
+        .NBF_INPUT  (NBF_INPUT  ),
+        .NB_OUTPUT  (NB_OUTPUT  ),
+        .NBF_OUTPUT (NBF_OUTPUT ),
+        .NB_TWIDDLE (9          ),
+        .NBF_TWIDDLE(7          )
+      )
+      u_mult(
+        .i_real(i_real),
+        .i_imag(i_imag),
+        .o_real(o_real),
+        .o_imag(o_imag)
+      );
+    end
+  endgenerate
 
-  
-  scm_mult #(
+endmodule
+
+// Wrapper específico para SCM (fácil de elaborar en Joules)
+module multiplicador_scm #(
+  parameter NB_INPUT    = 9,
+  parameter NBF_INPUT   = 7,
+  parameter NB_OUTPUT   = 19,
+  parameter NBF_OUTPUT  = 14
+)
+(
+  input  signed [NB_INPUT  -1 : 0] i_real,
+  input  signed [NB_INPUT  -1 : 0] i_imag,
+  output signed [NB_OUTPUT -1 : 0] o_real,
+  output signed [NB_OUTPUT -1 : 0] o_imag
+);
+  multiplicador #(
     .NB_INPUT   (NB_INPUT   ),
     .NBF_INPUT  (NBF_INPUT  ),
     .NB_OUTPUT  (NB_OUTPUT  ),
     .NBF_OUTPUT (NBF_OUTPUT ),
-    .NB_TWIDDLE (9 ),
-    .NBF_TWIDDLE(7 )
-  )
-  u_mult(
-    .i_real(i_real),
-    .i_imag(i_imag),
-    .o_real(o_real),
-    .o_imag(o_imag)
+    .ARCH       (0          )
+  ) u_dut (
+    .i_real     (i_real     ),
+    .i_imag     (i_imag     ),
+    .o_real     (o_real     ),
+    .o_imag     (o_imag     )
   );
-
-
 endmodule
 
-// module mcm_mult #(
-//   parameter NB_INPUT    = 9,
-//   parameter NBF_INPUT   = 8,
-//   parameter NB_OUTPUT   = 19,
-//   parameter NBF_OUTPUT  = 15,
-//   parameter NB_TWIDDLE  = 9,
-//   parameter NBF_TWIDDLE = 7
-// )
-// (
-//   input  signed [NB_INPUT  -1 : 0] i_real,
-//   input  signed [NB_INPUT  -1 : 0] i_imag,
-//   output signed [NB_OUTPUT -1 : 0] o_real,
-//   output signed [NB_OUTPUT -1 : 0] o_imag
-// );
+// Wrapper específico para MCM (fácil de elaborar en Joules)
+module multiplicador_mcm #(
+  parameter NB_INPUT    = 9,
+  parameter NBF_INPUT   = 7,
+  parameter NB_OUTPUT   = 19,
+  parameter NBF_OUTPUT  = 14
+)
+(
+  input  signed [NB_INPUT  -1 : 0] i_real,
+  input  signed [NB_INPUT  -1 : 0] i_imag,
+  output signed [NB_OUTPUT -1 : 0] o_real,
+  output signed [NB_OUTPUT -1 : 0] o_imag
+);
+  multiplicador #(
+    .NB_INPUT   (NB_INPUT   ),
+    .NBF_INPUT  (NBF_INPUT  ),
+    .NB_OUTPUT  (NB_OUTPUT  ),
+    .NBF_OUTPUT (NBF_OUTPUT ),
+    .ARCH       (1          )
+  ) u_dut (
+    .i_real     (i_real     ),
+    .i_imag     (i_imag     ),
+    .o_real     (o_real     ),
+    .o_imag     (o_imag     )
+  );
+endmodule
 
-//   localparam NB_MULT  = NB_TWIDDLE + NB_INPUT + 1;
-//   localparam NBF_MULT = NBF_TWIDDLE + NBF_INPUT;
+module mcm_mult #(
+  parameter NB_INPUT    = 9,
+  parameter NBF_INPUT   = 8,
+  parameter NB_OUTPUT   = 19,
+  parameter NBF_OUTPUT  = 15,
+  parameter NB_TWIDDLE  = 9,
+  parameter NBF_TWIDDLE = 7
+)
+(
+  input  signed [NB_INPUT  -1 : 0] i_real,
+  input  signed [NB_INPUT  -1 : 0] i_imag,
+  output signed [NB_OUTPUT -1 : 0] o_real,
+  output signed [NB_OUTPUT -1 : 0] o_imag
+);
+
+  localparam NB_MULT  = NB_TWIDDLE + NB_INPUT + 1;
+  localparam NBF_MULT = NBF_TWIDDLE + NBF_INPUT;
   
-//   localparam signed [8 : 0] twiddle_real = 9'b111010000;
-//   localparam signed [8 : 0] twiddle_imag = 9'b110001010;
+  localparam signed [8 : 0] twiddle_real = 9'b111010000;
+  localparam signed [8 : 0] twiddle_imag = 9'b110001010;
 
-//   wire signed [NB_MULT -1 : 0] real_mult;
-//   wire signed [NB_MULT -1 : 0] imag_mult;
+  wire signed [NB_MULT -1 : 0] real_mult;
+  wire signed [NB_MULT -1 : 0] imag_mult;
   
-//   assign o_real = i_real * twiddle_real - i_imag * twiddle_imag;
-//   assign o_imag = i_real * twiddle_imag + i_imag * twiddle_real;
+  assign o_real = i_real * twiddle_real - i_imag * twiddle_imag;
+  assign o_imag = i_real * twiddle_imag + i_imag * twiddle_real;
 
-// endmodule
+endmodule
 
 module scm_mult #(
   parameter NB_INPUT    = 9,

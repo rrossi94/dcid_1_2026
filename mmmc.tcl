@@ -1,93 +1,43 @@
 #################################################################################
 #
-# Created by Genus(TM) Synthesis Solution 20.10-d885_1 on Wed Jul 08 02:47:05 PDT 2020
-# Modified for DCID1 - Practico 6
+# Configuración MMMC para DCID1 - Práctico 6 (Cadence Joules)
+# Utiliza las librerías GPDK045 instaladas en /home/amslib/PDKs/gpdk045v6
 #
 #################################################################################
 
-## Asegurar variable DATA_DIR del entorno
-if {![info exists ::env(DATA_DIR)]} {
-    if {[info exists ::env(RAK_DIR)]} {
-        set ::env(DATA_DIR) "$::env(RAK_DIR)/data"
-    } elseif {[file exists "/home/cds-installs/DDI231/JSTUDIO231/share/studio/RAK/data"]} {
-        set ::env(DATA_DIR) "/home/cds-installs/DDI231/JSTUDIO231/share/studio/RAK/data"
-    } elseif {[file exists "/usr/share/cem-dcid/RAK/data"]} {
-        set ::env(DATA_DIR) "/usr/share/cem-dcid/RAK/data"
-    } else {
-        set ::env(DATA_DIR) "."
-    }
+set libpath "/home/amslib/PDKs/gpdk045v6"
+
+## Selección de librerías lógicas y QRC
+if {[file exists "${libpath}/gsclib045/timing/slow_vdd1v0_basicCells.lib"]} {
+    set slow_lib "${libpath}/gsclib045/timing/slow_vdd1v0_basicCells.lib"
+    set qrc_file "${libpath}/qrc/rcworst/qrcTechFile"
+} elseif {[info exists ::env(DATA_DIR)] && [file exists "$::env(DATA_DIR)/LIBRARIES/slow.lib"]} {
+    set slow_lib "$::env(DATA_DIR)/LIBRARIES/slow.lib"
+    set qrc_file "$::env(DATA_DIR)/CONSTRAINTS/gpdk045.tch"
+} else {
+    set slow_lib "${libpath}/gsclib045/timing/slow_vdd1v0_basicCells.lib"
+    set qrc_file "${libpath}/qrc/rcworst/qrcTechFile"
 }
 
 ## library_sets
 create_library_set -name ls_of_ld_PVT_1P08V_125C \
-    -timing [list $::env(DATA_DIR)/LIBRARIES/slow.lib \
-              $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v08_extvdd1v32.lib \
-              $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v32_extvdd1v08.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/pllclk_slow.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_S128x16.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_S256x16.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_R512x16.lib ]
-
-create_library_set -name ls_of_ld_PVT_1P32V_0C \
-    -timing [list $::env(DATA_DIR)/LIBRARIES/fast.lib \
-              $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v08_extvdd1v32.lib \
-              $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v32_extvdd1v08.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/pllclk_slow.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_S128x16.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_S256x16.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_R512x16.lib ]
-
-create_library_set -name ls_of_ld_power \
-    -timing [list $::env(DATA_DIR)/LIBRARIES/typical.lib \
-              $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v08_extvdd1v32.lib \
-              $::env(DATA_DIR)/LIBRARIES/gsclib045_v3.5/timing/slow_vdd1v32_extvdd1v08.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/pllclk_slow.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_S128x16.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_S256x16.lib \
-              $::env(DATA_DIR)/MACRO_LIBS/CDK_R512x16.lib ]
+    -timing [list $slow_lib]
 
 ## opcond
 create_opcond -name slow_108V \
     -process 1.0 \
-    -voltage 1.08 \
+    -voltage 1.0 \
     -temperature 125.0
-
-create_opcond -name fast_132V \
-    -process 1.0 \
-    -voltage 1.32 \
-    -temperature 0.0
-
-create_opcond -name typ_120V \
-    -process 1.0 \
-    -voltage 1.2 \
-    -temperature 25.0
 
 ## timing_condition
 create_timing_condition -name tc_of_ld_PVT_1P08V_125C \
     -opcond slow_108V \
     -library_sets { ls_of_ld_PVT_1P08V_125C }
 
-create_timing_condition -name tc_of_ld_PVT_1P32V_0C \
-    -opcond fast_132V \
-    -library_sets { ls_of_ld_PVT_1P32V_0C }
-
 ## rc_corner
 create_rc_corner -name max_rc_corner \
     -temperature 125.0 \
-    -qrc_tech $::env(DATA_DIR)/CONSTRAINTS/gpdk045.tch \
-    -pre_route_res 1.0 \
-    -pre_route_cap 1.0 \
-    -pre_route_clock_res 0.0 \
-    -pre_route_clock_cap 0.0 \
-    -post_route_res {1.0 1.0 1.0} \
-    -post_route_cap {1.0 1.0 1.0} \
-    -post_route_cross_cap {1.0 1.0 1.0} \
-    -post_route_clock_res {1.0 1.0 1.0} \
-    -post_route_clock_cap {1.0 1.0 1.0}
-
-create_rc_corner -name min_rc_corner \
-    -temperature 0.0 \
-    -qrc_tech $::env(DATA_DIR)/CONSTRAINTS/gpdk045.tch \
+    -qrc_tech $qrc_file \
     -pre_route_res 1.0 \
     -pre_route_cap 1.0 \
     -pre_route_clock_res 0.0 \
@@ -100,7 +50,7 @@ create_rc_corner -name min_rc_corner \
 
 ## delay_corner
 create_delay_corner -name delay_corner_1 \
-    -timing_condition { tc_of_ld_PVT_1P08V_125C AO@tc_of_ld_PVT_1P08V_125C TDSPCore@tc_of_ld_PVT_1P32V_0C PLL_PD@tc_of_ld_PVT_1P08V_125C } \
+    -timing_condition { tc_of_ld_PVT_1P08V_125C } \
     -rc_corner max_rc_corner 
 
 ## Resolución dinámica del archivo SDC
@@ -110,7 +60,6 @@ set sdc_candidates [list \
     [file join $script_dir "multiplicador.sdc"] \
     [file normalize "sdc/multiplicador.sdc"] \
     [file normalize "multiplicador.sdc"] \
-    "/usr/share/cem-dcid/practico_power/multiplicador.sdc" \
 ]
 
 set sdc_file_to_use ""

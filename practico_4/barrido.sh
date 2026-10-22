@@ -243,9 +243,13 @@ case "$TARGET" in
     B_L4)
         run_experiment "B_L4" "fir_serial_parallel_l4" "fir_serial_parallel_l4.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel_l4.sdc" "reporte_B_L4.csv"
         ;;
+    B_L4_mod|B_L4_modified)
+        run_experiment "B_L4_mod" "fir_serial_parallel_l4_modified" "fir_serial_parallel_l4.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel_l4_modified.sdc" "reporte_B_L4_modified.csv"
+        ;;
     B)
         run_experiment "B_L2" "fir_serial_parallel" "fir_serial_parallel.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel.sdc" "reporte_B_L2.csv"
         run_experiment "B_L4" "fir_serial_parallel_l4" "fir_serial_parallel_l4.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel_l4.sdc" "reporte_B_L4.csv"
+        run_experiment "B_L4_mod" "fir_serial_parallel_l4_modified" "fir_serial_parallel_l4.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel_l4_modified.sdc" "reporte_B_L4_modified.csv"
         ;;
     all)
         echo "======================================================================"
@@ -255,10 +259,11 @@ case "$TARGET" in
         run_experiment "A_pipe" "fir_serial" "fir_serial_pipe.sv" "fir_serial.sdc" "reporte_A_pipe.csv"
         run_experiment "B_L2" "fir_serial_parallel" "fir_serial_parallel.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel.sdc" "reporte_B_L2.csv"
         run_experiment "B_L4" "fir_serial_parallel_l4" "fir_serial_parallel_l4.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel_l4.sdc" "reporte_B_L4.csv"
+        run_experiment "B_L4_mod" "fir_serial_parallel_l4_modified" "fir_serial_parallel_l4.sv fir_parallel.sv fir_instance.sv" "fir_serial_parallel_l4_modified.sdc" "reporte_B_L4_modified.csv"
         ;;
     *)
         echo "Opción no reconocida: $TARGET"
-        echo "Uso: ./barrido.sh [all | A | B | A_base | A_pipe | B_L2 | B_L4]"
+        echo "Uso: ./barrido.sh [all | A | B | A_base | A_pipe | B_L2 | B_L4 | B_L4_mod]"
         exit 1
         ;;
 esac
